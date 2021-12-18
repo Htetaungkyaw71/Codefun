@@ -1,0 +1,31 @@
+{% extends 'codefun/layout.html' %}
+
+{% block body %}
+
+
+<div class="container mt-5" >
+    {% if message %}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+      </div>
+    
+    {% endif %}
+    <h1 class="mb-3">Register</h1>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+    
+      
+        <input type="text" name="username" class="form-control  mb-3" placeholder="Username">
+        <input type="email" name="email" class="form-control  mb-3" placeholder="Email">
+        <input type="password" name="password" class="form-control  mb-3" placeholder="Password">
+        <input type="password" name="cpassword" class="form-control  mb-3" placeholder="Confirm_Password">
+        <input type="submit" class="btn btn-primary  mb-3" >
+    </form>
+    <p>
+        If you have account Please  <a href="{% url 'login' %}">Login</a>
+    </p>
+  
+</div>
+
+
+{% endblock %}

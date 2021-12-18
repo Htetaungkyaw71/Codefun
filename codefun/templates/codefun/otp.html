@@ -1,0 +1,23 @@
+{% extends 'codefun/layout.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="container mt-5" id="otp"  >
+            <h1 class="text-center mb-3">OTP</h1>
+            <form action="{% url 'otp' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="otp" class="form-control mb-3" placeholder="Otp number" required>
+                <input type="submit" class="btn btn-primary mb-3">
+            </form>
+            <span class="text-muted">Check your mail, Please be patient.</span>
+            
+        
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+{% endblock %}
